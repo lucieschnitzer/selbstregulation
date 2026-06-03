@@ -1,0 +1,181 @@
+/* ============================================================
+   THE DEFAULT RESILIENT METHOD — design tokens
+   by Lucie Schnitzer
+
+   Fonts: Playfair Display (display/body-serif) + Manrope (UI/body-sans)
+   Palette: coral primary, warm greys, soft paper neutrals
+   ============================================================ */
+
+/* --- Fonts from Google Fonts (matches brand spec) ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ---------- Colour: Primary (coral) scale ---------- */
+  --primary-10: #FDF1EF;   /* softest tint, section bg */
+  --primary-20: #FBE3DF;
+  --primary-30: #F7C7BF;
+  --primary-40: #F5B8AF;
+  --primary-60: #EE8E7F;
+  --primary-80: #EA725F;   /* MAIN — use for CTAs, accents, section labels */
+  --primary-100: #F75C43;  /* deepest coral, active / pressed */
+
+  /* ---------- Colour: Text / Neutrals (warm grey) ---------- */
+  --text-5:   #E9E9E9;    /* borders in dark surfaces */
+  --text-10:  #D3D3D3;    /* disabled, hairline */
+  --text-20:  #A8A8A8;    /* meta, caption */
+  --text-40:  #929292;    /* tertiary copy */
+  --text-60:  #7C7C7C;    /* secondary copy */
+  --text-80:  #515151;    /* body default */
+  --text-100: #252525;    /* headings, high emphasis, dark surfaces */
+
+  /* ---------- Colour: Backgrounds ---------- */
+  --bg-white: #FFFFFF;    /* pure canvas */
+  --bg-paper: #F7F7F5;    /* warm neutral — section alternation */
+  --bg-dark:  #252525;    /* inverse surface — testimonials, footer */
+
+  /* ---------- Semantic aliases ---------- */
+  --fg-1: var(--text-100);     /* headline, highest emphasis */
+  --fg-2: var(--text-80);      /* body copy */
+  --fg-3: var(--text-60);      /* secondary body (often serif on light) */
+  --fg-4: var(--text-40);      /* muted / meta */
+  --fg-5: var(--text-20);      /* placeholder, footnote */
+  --fg-on-dark: #FFFFFF;
+  --fg-on-dark-2: rgba(255, 255, 255, 0.7);
+  --fg-on-dark-3: rgba(255, 255, 255, 0.45);
+
+  --accent: var(--primary-80);          /* default coral accent */
+  --accent-strong: var(--primary-100);  /* active, deep accent (step numbers) */
+  --accent-soft:   var(--primary-10);   /* tinted bg panels */
+
+  --surface: var(--bg-white);
+  --surface-alt: var(--bg-paper);
+  --surface-inverse: var(--bg-dark);
+
+  --border: #E8E6E3;          /* hairline on paper */
+  --border-strong: #DDDDDD;   /* inputs, dividers */
+  --border-inverse: rgba(255, 255, 255, 0.15);
+
+  /* ---------- Type: families ---------- */
+  --font-display: 'Playfair Display', 'Times New Roman', Georgia, serif;
+  --font-serif:   'Playfair Display', 'Times New Roman', Georgia, serif;
+  --font-sans:    'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ---------- Type: scale (desktop defaults) ----------
+     Spec lives in Typography_Lucie_S.png.
+     Headings use Playfair Display Medium.
+     Body copy uses Playfair Display Regular (long-form) OR Manrope (UI/nav/buttons).
+  -----------------------------------------------------*/
+  --fs-h1: 74px;   --lh-h1: 88px;    --fw-h1: 500;   /* Playfair 500 */
+  --fs-h2: 58px;   --lh-h2: 68px;    --fw-h2: 500;
+  --fs-h3: 36px;   --lh-h3: 44px;    --fw-h3: 700;
+  --fs-h4: 28px;   --lh-h4: 36px;    --fw-h4: 700;
+  --fs-h5: 22px;   --lh-h5: 28px;    --fw-h5: 700;
+  --fs-h6: 18px;   --lh-h6: 24px;    --fw-h6: 700;
+  --fs-h7: 16px;   --lh-h7: 20px;    --fw-h7: 700;
+
+  --fs-body-lg:      22px;  --lh-body-lg:      34px;   /* Playfair regular — hero lede */
+  --fs-body-md:      20px;  --lh-body-md:      30px;   /* Playfair regular — long-form */
+  --fs-body-default: 18px;  --lh-body-default: 30px;   /* Playfair regular — default */
+  --fs-body-sm:      16px;  --lh-body-sm:      26px;
+  --fs-body-xs:      13px;  --lh-body-xs:      24px;
+
+  --fs-btn-lg: 15px;   --lh-btn-lg: 20px;   --fw-btn: 600;   /* Manrope semi */
+  --fs-btn-sm: 13px;   --lh-btn-sm: 18px;
+  --fs-label:  12px;   --lh-label:  16px;                    /* uppercase section label */
+  --ls-label:  0.2em;
+
+  /* ---------- Radius / shadows / elevation ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;      /* buttons are capsule-shaped */
+
+  --shadow-none: none;
+  --shadow-subtle: 0 1px 2px rgba(37, 37, 37, 0.04);
+  --shadow-card:   0 4px 12px rgba(37, 37, 37, 0.06);
+
+  /* ---------- Spacing (8-pt base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;   /* section rhythm */
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+}
+
+/* =============== Base reset + typography ====================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--fg-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-default);
+  line-height: var(--lh-body-default);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Playfair Display — the editorial serif spine of the brand */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  margin: 0;
+}
+h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); font-weight: var(--fw-h1); letter-spacing: -0.01em; }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); font-weight: var(--fw-h2); letter-spacing: -0.005em; }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-h3); }
+h4 { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-h4); }
+h5 { font-size: var(--fs-h5); line-height: var(--lh-h5); font-weight: var(--fw-h5); }
+h6 { font-size: var(--fs-h6); line-height: var(--lh-h6); font-weight: var(--fw-h6); }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+strong { color: var(--fg-1); font-weight: 600; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* =============== Semantic utility classes ==================== */
+
+/* Section label — uppercase tracked, coral. Used above every H2 unit. */
+.dr-section-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Long-form body set in Playfair — the "editorial" voice */
+.dr-body-lg  { font-family: var(--font-serif); font-size: var(--fs-body-lg); line-height: var(--lh-body-lg); color: var(--fg-3); }
+.dr-body-md  { font-family: var(--font-serif); font-size: var(--fs-body-md); line-height: var(--lh-body-md); color: var(--fg-3); }
+.dr-body     { font-family: var(--font-serif); font-size: var(--fs-body-default); line-height: var(--lh-body-default); color: var(--fg-3); }
+
+/* UI text — Manrope. Used in buttons, nav, meta, small labels. */
+.dr-ui       { font-family: var(--font-sans); font-size: var(--fs-body-sm); line-height: var(--lh-body-sm); color: var(--fg-2); }
+.dr-ui-sm    { font-family: var(--font-sans); font-size: var(--fs-body-xs); line-height: var(--lh-body-xs); color: var(--fg-4); }
+
+/* Coral accent underline rule — a 48×4 rule used under eyebrow + H1 on editorial pages */
+.dr-coral-rule {
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vom Stress zur Selbstregulation · Biofeedback mit Lucie Schnitzer</title>
+<meta name="description" content="Lerne, Dein Nervensystem bewusst zu lesen und zu regulieren. Biofeedback macht in Echtzeit sichtbar, wie Dein Körper auf Stress reagiert, und gibt Dir konkrete Werkzeuge an die Hand." />
+<link rel="stylesheet" href="assets/colors_and_type.css" />
+<style>
+/* ===== Page layout, built on the Default Resilient tokens ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--fg-2);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 72px 0; }
+.section--paper { background: var(--surface-alt); }
+.section--dark { background: var(--surface-inverse); color: var(--fg-on-dark); }
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label); letter-spacing: var(--ls-label);
+  text-transform: uppercase; font-weight: 700; color: var(--accent);
+  margin: 0 0 16px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; color: var(--fg-1); margin: 0 0 18px; }
+h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.08; letter-spacing: -0.01em; }
+h2 { font-size: clamp(28px, 4.4vw, 48px); line-height: 1.12; }
+h3 { font-size: clamp(20px, 2.6vw, 28px); line-height: 1.2; font-weight: 700; }
+.lede { font-family: var(--font-serif); font-size: clamp(19px, 2.2vw, 22px); line-height: 1.55; color: var(--fg-3); }
+p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
+.measure { max-width: 64ch; }
+.center { text-align: center; }
+.center .measure { margin-left: auto; margin-right: auto; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+  padding: 15px 30px; border-radius: var(--radius-pill);
+  text-decoration: none; cursor: pointer; border: 1px solid transparent;
+  transition: transform var(--dur-fast) var(--ease-standard), background var(--dur-fast);
+}
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-strong); }
+.btn--ghost { background: transparent; color: var(--fg-1); border-color: var(--border-strong); }
+.btn--inverse { background: #fff; color: var(--text-100); }
+
+/* Topbar / cobrand */
+.topbar { border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 50; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1080px; margin: 0 auto; gap: 16px; flex-wrap: wrap; }
+.cobrand { font-family: var(--font-sans); font-weight: 600; font-size: 14px; color: var(--fg-1); display: flex; align-items: center; gap: 8px; }
+.cobrand .x { color: var(--accent); }
+.cobrand .who { color: var(--fg-3); font-weight: 500; }
+.topbar-cta { font-size: 13px; padding: 9px 18px; }
+.topmeta { font-size: 12px; color: var(--fg-4); }
+
+/* Hero */
+.hero { padding: 84px 0 64px; }
+.hero .sub { font-family: var(--font-display); font-style: italic; font-size: clamp(20px, 3vw, 30px); color: var(--accent); margin: -6px 0 22px; }
+.hero .tagline { font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.01em; color: var(--fg-2); margin: 0 0 30px; font-size: 17px; }
+.hero .tagline span { color: var(--fg-4); padding: 0 8px; }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.cta-note { font-size: 13px; color: var(--fg-4); }
+
+/* Problem quotes */
+.quotes { display: grid; gap: 14px; max-width: 760px; }
+.quote {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(20px, 3vw, 28px); line-height: 1.35; color: var(--fg-1);
+  padding: 4px 0 4px 22px; border-left: 3px solid var(--primary-30);
+}
+.reflect { margin-top: 26px; font-family: var(--font-serif); font-size: 20px; color: var(--fg-3); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-subtle); }
+.card .num { font-family: var(--font-sans); font-weight: 700; color: var(--accent); font-size: 13px; letter-spacing: 0.08em; }
+.card h3 { margin: 14px 0 8px; font-size: 20px; }
+.card p { font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 0; }
+
+/* Mechanism signal chips */
+.signals { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 0; }
+.chip { font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: var(--fg-2); background: var(--accent-soft); border: 1px solid var(--primary-20); border-radius: var(--radius-pill); padding: 8px 16px; }
+
+/* Cooperation */
+.coop { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+.coop-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; background: var(--surface); }
+.coop-card .role { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 6px; }
+.coop-card .name { font-family: var(--font-display); font-size: 24px; color: var(--fg-1); margin: 0 0 8px; }
+.editable { border-left: 3px dashed var(--primary-40); }
+
+/* Pricing */
+.price-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+.price-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; background: var(--surface); text-align: center; }
+.price-card .plan { font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.04em; color: var(--fg-2); text-transform: uppercase; }
+.price-card .amount { font-family: var(--font-display); font-size: 44px; color: var(--fg-1); margin: 12px 0 4px; }
+.price-card .unit { font-size: 14px; color: var(--fg-4); }
+.price-note { text-align: center; font-size: 14px; color: var(--fg-4); margin-top: 18px; }
+
+/* Final CTA */
+.final { text-align: center; }
+.final h2 { color: #fff; }
+.final p { color: var(--fg-on-dark-2); }
+
+/* Footer */
+.footer { border-top: 1px solid var(--border); padding: 36px 0; font-size: 13px; color: var(--fg-4); }
+.footer a { color: var(--fg-3); text-decoration: none; }
+
+@media (max-width: 760px) {
+  .section { padding: 52px 0; }
+  .cards, .coop, .price-wrap { grid-template-columns: 1fr; }
+  .hero { padding: 56px 0 44px; }
+  .topmeta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Topbar / cobrand ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="cobrand">
+      <span>Lucie Schnitzer</span>
+      <span class="x">×</span>
+      <span class="who">Susanne Schröder-Böse</span>
+    </div>
+    <span class="topmeta">Biofeedback · Nervensystem-Regulation</span>
+    <a href="#interesse" class="btn btn--primary topbar-cta">Ich habe Interesse</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Von der Reaktion zur Selbstregulation</p>
+    <h1 class="measure">Wie Du lernst, Dein Nervensystem zu steuern, anstatt vom Stress gesteuert zu werden.</h1>
+    <p class="tagline">Stress verstehen <span>·</span> Kontrolle gewinnen <span>·</span> Besser performen</p>
+    <p class="lede measure">Durch Biofeedback lernst Du, Dein Nervensystem bewusst zu lesen und zu regulieren. Für mehr Fokus, Energie, Gelassenheit und Kontrolle im Alltag.</p>
+    <div class="cta-row" style="margin-top:28px">
+      <a href="#interesse" class="btn btn--primary">Ich habe Interesse</a>
+      <a href="#wie" class="btn btn--ghost">Wie es funktioniert</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Problem in their own words ===== -->
+<section class="section section--paper">
+  <div class="wrap">
+    <p class="eyebrow">Vielleicht kennst Du das</p>
+    <div class="quotes">
+      <p class="quote">„Ich fühle mich gestresst."</p>
+      <p class="quote">„Ich komme nicht zur Ruhe, ich fühle mich orientierungslos."</p>
+      <p class="quote">„Ich fühle mich überfordert."</p>
+    </div>
+    <p class="reflect measure">Und darunter oft die leise Frage: welche inneren Muster halten mich eigentlich klein.</p>
+  </div>
+</section>
+
+<!-- ===== The shift / core promise ===== -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Die wichtigste Veränderung</p>
+    <h2 class="measure">Du gehst von der Reaktion zur Selbststeuerung über.</h2>
+    <p class="measure">Du identifizierst Deine externen Trigger, lernst, wie Dein Körper darauf reagiert, und bekommst spezifische Selbstregulations-Tools an die Hand. Du gewinnst Transparenz über Deinen inneren Stresslevel und damit die Klarheit, wo Du ansetzen kannst.</p>
+  </div>
+</section>
+
+<!-- ===== Who it's for ===== -->
+<section class="section section--paper">
+  <div class="wrap">
+    <p class="eyebrow">Für wen</p>
+    <h2 class="measure">Für Menschen, die viel leisten und tiefer verstehen wollen, was in ihnen vorgeht.</h2>
+    <p class="measure">Junge, erfolgreiche, dynamische Menschen mitten in beruflichen Herausforderungen und Fragen nach Zielen, Beziehung und Familienplanung. Menschen, die manchmal auch vor der größten Frage stehen: wer bin ich eigentlich.</p>
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="section" id="wie">
+  <div class="wrap">
+    <p class="eyebrow">Wie es funktioniert</p>
+    <h2 class="measure">Biofeedback macht in Echtzeit sichtbar, wie Dein Körper auf Stress, Druck und Gedanken reagiert.</h2>
+    <p class="measure">Über messbare Signale aus Deinem Körper sehen wir gemeinsam, was sich unter der Oberfläche abspielt, während es passiert.</p>
+    <div class="signals">
+      <span class="chip">Atmung</span>
+      <span class="chip">Herzparameter</span>
+      <span class="chip">Muskelspannung</span>
+    </div>
+    <p class="measure" style="margin-top:28px"><strong>Die zentrale Erkenntnis:</strong> Stress passiert nicht einfach mit Dir. Du hast direkten Einfluss auf Dein Nervensystem und damit auf Deinen Fokus, Deine Energie, Deine Gelassenheit und Deine Leistungsfähigkeit.</p>
+  </div>
+</section>
+
+<!-- ===== Outcomes ===== -->
+<section class="section section--paper">
+  <div class="wrap">
+    <p class="eyebrow">Was Du mitnimmst</p>
+    <h2 class="measure">Konkrete, greifbare Ergebnisse aus jeder Session.</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Klarheit über die eigenen Stressmuster</h3>
+        <p>Du erkennst, was Dein Nervensystem unter Druck setzt und welche Situationen, Gedanken und Gewohnheiten Dich unbemerkt Energie kosten. Stress verstehen statt nur spüren.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Messbares Verständnis Deines Körpers</h3>
+        <p>Du siehst über die Messwerte, wie Dein Körper auf Stress reagiert und welche Strategien ihn wieder in Balance bringen. Die Hebel Deines Nervensystems kennen.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Werkzeuge für den Alltag</h3>
+        <p>Du nimmst Methoden mit, mit denen Du Fokus und innere Stabilität gezielt trainierst und im Moment abrufen kannst.</p>
+      </div>
+    </div>
+    <p class="lede measure" style="margin-top:34px">Du verlässt die Session nicht nur mit einem besseren Verständnis Deiner Belastung, sondern mit konkretem Wissen, wie Du Deinen Zustand aktiv beeinflussen kannst.</p>
+  </div>
+</section>
+
+<!-- ===== Cooperation / positioning =====
+     EDITABLE: exact wording of who-does-what is still being finalised with Susanne. -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Die Zusammenarbeit</p>
+    <h2 class="measure">Zwei Perspektiven, eine Methode.</h2>
+    <div class="coop">
+      <div class="coop-card editable">
+        <p class="role">Methode</p>
+        <p class="name">Lucie Schnitzer</p>
+        <p>Entwicklerin der Methode und Biofeedback-Praktikerin. Sie liest und interpretiert die Messwerte Deines Nervensystems und leitet daraus Dein Training ab.</p>
+      </div>
+      <div class="coop-card editable">
+        <p class="role">Begleitung</p>
+        <p class="name">Susanne Schröder-Böse</p>
+        <p>Begleitet Dich im Prozess und schlägt die Brücke zwischen den Erkenntnissen und Deinem Alltag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing =====
+     EDITABLE: final pricing + split still to be confirmed. Values below are reference points only. -->
+<section class="section section--paper">
+  <div class="wrap center">
+    <p class="eyebrow">Investition</p>
+    <h2 class="measure">Transparente Richtwerte.</h2>
+    <div class="price-wrap" style="max-width:680px;margin-left:auto;margin-right:auto">
+      <div class="price-card">
+        <p class="plan">Session mit Analyse</p>
+        <p class="amount">ca. 150&nbsp;€</p>
+        <p class="unit">inkl. Auswertung Deiner Messwerte</p>
+      </div>
+      <div class="price-card">
+        <p class="plan">Einzelsession</p>
+        <p class="amount">110&nbsp;€</p>
+        <p class="unit">60 Minuten in der Praxis</p>
+      </div>
+    </div>
+    <p class="price-note measure">Die finale Preisgestaltung wird individuell bestätigt.</p>
+  </div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="section section--dark final" id="interesse">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--primary-40)">Der erste Schritt</p>
+    <h2 class="measure" style="margin-left:auto;margin-right:auto">Finde heraus, was Dein Nervensystem Dir zeigt.</h2>
+    <p class="measure" style="margin:0 auto 30px">Schreib uns kurz, und wir melden uns mit den nächsten Schritten.</p>
+    <a href="mailto:lucie@example.com?subject=Ich%20habe%20Interesse" class="btn btn--inverse">Ich habe Interesse</a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="wrap">
+    Lucie Schnitzer · The Default Resilient Method &nbsp;·&nbsp; in Zusammenarbeit mit Susanne Schröder-Böse
+  </div>
+</footer>
+
+</body>
+</html>
