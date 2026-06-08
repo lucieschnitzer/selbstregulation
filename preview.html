@@ -25,15 +25,15 @@
   .browser .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #f1efec; border-bottom: 1px solid #e2ded7; }
   .browser .dot { width: 11px; height: 11px; border-radius: 50%; background: #cfc9c0; }
   .browser .addr { margin-left: 12px; font-size: 11px; color: #9a948b; }
-  .d-clip { width: 683px; height: 4150px; overflow: hidden; }
-  .d-clip iframe { width: 1366px; height: 8300px; border: 0; transform: scale(0.5); transform-origin: top left; }
+  .d-clip { width: 683px; height: 4400px; overflow: hidden; }
+  .d-clip iframe { width: 1366px; height: 8800px; border: 0; transform: scale(0.5); transform-origin: top left; }
 
   /* ----- iPhone frame ----- */
   /* iframe rendered at 390 wide, scaled to 0.62 -> ~242 visual width */
   .phone { padding: 12px 11px; background: #1c1c1e; border-radius: 46px; box-shadow: 0 18px 50px rgba(0,0,0,0.22); position: relative; }
   .phone::before { content: ""; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; background: #1c1c1e; border-radius: 14px; z-index: 2; }
-  .p-clip { width: 242px; height: 7950px; overflow: hidden; border-radius: 36px; background: #fff; }
-  .p-clip iframe { width: 390px; height: 12800px; border: 0; transform: scale(0.6205); transform-origin: top left; }
+  .p-clip { width: 242px; height: 8200px; overflow: hidden; border-radius: 36px; background: #fff; }
+  .p-clip iframe { width: 390px; height: 13200px; border: 0; transform: scale(0.6205); transform-origin: top left; }
 
   @media (max-width: 1040px) { :root { --gap: 36px; } }
 </style>
