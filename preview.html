@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vorschau · Desktop und iPhone nebeneinander</title>
+<style>
+  :root { --gap: 56px; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #e9e7e3; color: #252525;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Manrope, sans-serif;
+    padding: 40px 28px 80px;
+  }
+  .head { text-align: center; margin: 0 auto 36px; max-width: 900px; }
+  .head h1 { font-size: 22px; margin: 0 0 6px; font-weight: 700; }
+  .head p { margin: 0; color: #7c7c7c; font-size: 14px; }
+  .stage { display: flex; gap: var(--gap); justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+  .col { display: flex; flex-direction: column; align-items: center; }
+  .label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #515151; margin-bottom: 14px; }
+
+  /* ----- Desktop browser frame ----- */
+  /* iframe rendered at 1366 wide, scaled to 0.50 -> 683 visual width */
+  .browser { width: 683px; border-radius: 12px; overflow: hidden; box-shadow: 0 18px 50px rgba(0,0,0,0.18); border: 1px solid #d8d4ce; background: #fff; }
+  .browser .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #f1efec; border-bottom: 1px solid #e2ded7; }
+  .browser .dot { width: 11px; height: 11px; border-radius: 50%; background: #cfc9c0; }
+  .browser .addr { margin-left: 12px; font-size: 11px; color: #9a948b; }
+  .d-clip { width: 683px; height: 4150px; overflow: hidden; }
+  .d-clip iframe { width: 1366px; height: 8300px; border: 0; transform: scale(0.5); transform-origin: top left; }
+
+  /* ----- iPhone frame ----- */
+  /* iframe rendered at 390 wide, scaled to 0.62 -> ~242 visual width */
+  .phone { padding: 12px 11px; background: #1c1c1e; border-radius: 46px; box-shadow: 0 18px 50px rgba(0,0,0,0.22); position: relative; }
+  .phone::before { content: ""; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; background: #1c1c1e; border-radius: 14px; z-index: 2; }
+  .p-clip { width: 242px; height: 7950px; overflow: hidden; border-radius: 36px; background: #fff; }
+  .p-clip iframe { width: 390px; height: 12800px; border: 0; transform: scale(0.6205); transform-origin: top left; }
+
+  @media (max-width: 1040px) { :root { --gap: 36px; } }
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>Selbstregulations-Programm · Vorschau</h1>
+    <p>Links die Desktop-Ansicht, rechts die iPhone-Ansicht. Beide zeigen die komplette Seite.</p>
+  </div>
+  <div class="stage">
+    <div class="col">
+      <div class="label">Desktop</div>
+      <div class="browser">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr">selbstregulation · index.html</span></div>
+        <div class="d-clip"><iframe src="index.html" title="Desktop-Vorschau" scrolling="no"></iframe></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">iPhone</div>
+      <div class="phone">
+        <div class="p-clip"><iframe src="index.html" title="iPhone-Vorschau" scrolling="no"></iframe></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

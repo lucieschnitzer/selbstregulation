@@ -3,13 +3,37 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vom Stress zur Selbstregulation · Biofeedback mit Lucie Schnitzer</title>
-<meta name="description" content="Lerne, Dein Nervensystem bewusst zu lesen und zu regulieren. Biofeedback macht in Echtzeit sichtbar, wie Dein Körper auf Stress reagiert, und gibt Dir konkrete Werkzeuge an die Hand." />
+<title>Das Selbstregulations-Programm · Biofeedback mit Susanne Schröder-Böse</title>
+<meta name="description" content="Ein persönliches Biofeedback-Programm über 6 bis 12 Wochen mit Susanne Schröder-Böse. Lerne, Dein Nervensystem bewusst zu lesen und zu regulieren, für mehr Fokus, Energie, Gelassenheit und Kontrolle im Alltag. Auf Basis der Default Resilient Method von Lucie Schnitzer." />
 <link rel="stylesheet" href="assets/colors_and_type.css" />
 <style>
-/* ===== Page layout, built on the Default Resilient tokens ===== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+/* ===== Schröder-Böse Coaching brand tokens (override Default Resilient) =====
+   Olive + slate, Playfair Display + Open Sans, square corners, flat (no shadows/gradients). */
+:root {
+  --font-sans: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  /* olive primary ramp */
+  --primary-10: #F4F5E8; --primary-20: #E8EAD0; --primary-30: #DADDB4; --primary-40: #CBCF98;
+  --primary-60: #BBBF79; --primary-80: #A4A859; --primary-100: #8C9047;
+  --accent: #A4A859; --accent-strong: #8C9047; --accent-soft: #EFF0DD;
+  /* neutrals: slate headline, ink body, cream surface */
+  --text-100: #515762; --text-80: #4D4D4D; --text-60: #58595B; --text-40: #8A8B86; --text-20: #B0B0AE;
+  --fg-1: #515762; --fg-2: #4D4D4D; --fg-3: #58595B; --fg-4: #8A8B86; --fg-5: #B0B0AE;
+  --fg-on-dark: #FFFFFF; --fg-on-dark-2: rgba(255,255,255,0.80); --fg-on-dark-3: rgba(255,255,255,0.5);
+  --bg-white: #FFFFFF; --bg-paper: #FAF9F5; --bg-dark: #515762;
+  --surface: #FFFFFF; --surface-alt: #FAF9F5; --surface-inverse: #515762;
+  --border: #EFEFEF; --border-strong: #DDDCD4;
+  /* square corners + flat */
+  --radius-sm: 0; --radius-md: 0; --radius-lg: 0; --radius-pill: 0;
+  --shadow-none: none; --shadow-subtle: none; --shadow-card: none;
+}
+
+/* ===== Page layout ===== */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 86px; }
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -21,6 +45,7 @@ body {
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 72px 0; }
 .section--paper { background: var(--surface-alt); }
+.section--tint { background: var(--accent-soft); }
 .section--dark { background: var(--surface-inverse); color: var(--fg-on-dark); }
 .eyebrow {
   font-family: var(--font-sans);
@@ -61,11 +86,10 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 .topbar-cta { font-size: 13px; padding: 9px 18px; }
 .topmeta { font-size: 12px; color: var(--fg-4); }
 
-/* Hero */
-.hero { padding: 84px 0 64px; }
-.hero .sub { font-family: var(--font-display); font-style: italic; font-size: clamp(20px, 3vw, 30px); color: var(--accent); margin: -6px 0 22px; }
-.hero .tagline { font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.01em; color: var(--fg-2); margin: 0 0 30px; font-size: 17px; }
-.hero .tagline span { color: var(--fg-4); padding: 0 8px; }
+/* Hero — split: copy left, true-color media right */
+.hero { padding: 88px 0 72px; }
+.hero .tagline { font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 26px; font-size: 14px; }
+.hero .tagline span { color: var(--primary-40); padding: 0 8px; }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .cta-note { font-size: 13px; color: var(--fg-4); }
 
@@ -89,6 +113,24 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 .signals { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 0; }
 .chip { font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: var(--fg-2); background: var(--accent-soft); border: 1px solid var(--primary-20); border-radius: var(--radius-pill); padding: 8px 16px; }
 
+/* Biomarker grid (6 cards) */
+.bio-cards { margin-top: 30px; }
+.bio-cards .card { display: flex; flex-direction: column; }
+.bio-cards .card .num { align-self: flex-end; }
+.bio-cards .card h3 { margin: 6px 0 8px; font-size: 19px; }
+.bio-cards .card p { flex: 1; }
+.spark { display: flex; align-items: flex-end; gap: 3px; height: 38px; margin-top: 20px; }
+.spark i { flex: 1; background: var(--primary-30); border-radius: 2px; height: 42%; }
+.spark i:nth-child(2) { height: 60%; }
+.spark i:nth-child(3) { height: 48%; }
+.spark i:nth-child(4) { height: 66%; }
+.spark i:nth-child(5) { height: 54%; }
+.spark i:nth-child(6) { height: 74%; }
+.spark i:nth-child(7) { height: 88%; background: var(--accent); }
+.spark i:nth-child(8) { height: 100%; background: var(--accent); }
+.spark i:nth-child(9) { height: 78%; background: var(--primary-60); }
+.spark i:nth-child(10) { height: 58%; }
+
 /* Cooperation */
 .coop { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
 .coop-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; background: var(--surface); }
@@ -103,6 +145,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 .price-card .amount { font-family: var(--font-display); font-size: 44px; color: var(--fg-1); margin: 12px 0 4px; }
 .price-card .unit { font-size: 14px; color: var(--fg-4); }
 .price-note { text-align: center; font-size: 14px; color: var(--fg-4); margin-top: 18px; }
+.placeholder-box { max-width: 680px; margin: 26px auto 0; padding: 52px 30px; border: 1px dashed var(--border-strong); color: var(--fg-4); font-family: var(--font-sans); font-size: 14px; letter-spacing: 0.02em; }
 
 /* Final CTA */
 .final { text-align: center; }
@@ -113,10 +156,96 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 .footer { border-top: 1px solid var(--border); padding: 36px 0; font-size: 13px; color: var(--fg-4); }
 .footer a { color: var(--fg-3); text-decoration: none; }
 
+/* ===== Media ===== */
+/* Hero split */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+.hero-media { margin: 0; }
+.hero-media img, .hero-media video { width: 100%; height: 100%; min-height: 480px; max-height: 640px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); display: block; }
+
+/* Section split (copy + media) */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.split-copy .eyebrow { margin-top: 0; }
+.split-media { margin: 0; }
+.split-media img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); display: block; }
+.loop-video { width: 100%; height: 100%; max-height: 460px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); display: block; background: var(--bg-paper); }
+
+/* Tick list (integration points) */
+.ticks { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.ticks li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.55; color: var(--fg-2); }
+.ticks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); }
+.ticks li::after { content: ""; position: absolute; left: 6px; top: 8px; width: 6px; height: 3px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); }
+
+/* Full-bleed cinematic band */
+.fullbleed { position: relative; margin: 0; }
+.fullbleed img { width: 100%; height: clamp(280px, 44vw, 540px); object-fit: cover; object-position: center 35%; display: block; }
+.fullbleed-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 64px 24px 26px; margin: 0;
+  font-family: var(--font-serif); font-size: clamp(17px, 2.2vw, 22px); color: #fff;
+  background: linear-gradient(to top, rgba(20,20,20,0.72), rgba(20,20,20,0));
+}
+.fullbleed-cap span { max-width: 1080px; margin: 0 auto; display: block; }
+
+/* Cooperation avatars */
+.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; display: block; margin: 0 0 16px; box-shadow: var(--shadow-subtle); }
+.avatar--mono {
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: 0.01em;
+}
+
+/* Background video on dark CTA */
+.final { position: relative; overflow: hidden; }
+.final .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.32; z-index: 0; }
+.final .bg-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(37,37,37,0.55), rgba(37,37,37,0.86)); z-index: 0; }
+.final .wrap { position: relative; z-index: 1; }
+
+/* ===== Program positioning bits ===== */
+/* Hero program-meta pills */
+.prog-meta { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 0 0 24px; font-family: var(--font-sans); font-size: 13px; font-weight: 600; }
+.prog-meta .pill { background: var(--accent-soft); border: 1px solid var(--primary-20); color: var(--accent); border-radius: var(--radius-pill); padding: 6px 14px; letter-spacing: 0.02em; }
+
+/* Trust / credibility microcopy near CTAs */
+.trust { margin-top: 16px; font-size: 13px; color: var(--fg-4); }
+.trust a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.trust a:hover { text-decoration: underline; }
+
+/* Program steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+.step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-subtle); }
+.step .step-no { font-family: var(--font-display); font-size: 40px; color: var(--primary-30); line-height: 1; }
+.step h3 { margin: 12px 0 8px; font-size: 20px; }
+.step p { font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 0; }
+.step .dur { display: inline-block; margin-top: 16px; font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--primary-20); border-radius: var(--radius-pill); padding: 5px 12px; }
+
+/* Device showcase: practice photo + phone(s) */
+.showcase { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; margin-top: 36px; }
+.device-photo { margin: 0; }
+.device-photo img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); display: block; }
+.device-photo figcaption, .phones-cap, .device-browser-fig figcaption { margin-top: 14px; font-size: 14px; color: var(--fg-4); font-family: var(--font-sans); }
+
+/* Scrollable browser frame (assessment snapshot) */
+.device-browser-fig { margin: 0; }
+.device-browser { border-radius: 0; overflow: hidden; border: 1px solid var(--border-strong); background: #fff; }
+.device-browser .bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #f1efec; border-bottom: 1px solid var(--border); }
+.device-browser .dot { width: 10px; height: 10px; border-radius: 50%; background: #cfc9c0; }
+.device-browser .addr { margin-left: 10px; font-size: 11px; color: #9a948b; font-family: var(--font-sans); }
+.browser-scroll { height: 500px; overflow-y: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.browser-scroll img { display: block; width: 100%; height: auto; }
+.phones { display: flex; gap: 16px; justify-content: center; align-items: flex-start; }
+.phone { flex: 0 1 172px; min-width: 0; border-radius: 30px; padding: 7px; background: #1d1d1d; box-shadow: var(--shadow-card); }
+.phone img { display: block; width: 100%; height: auto; aspect-ratio: 1320 / 2868; border-radius: 24px; }
+.phone-col { text-align: center; }
+
 @media (max-width: 760px) {
   .section { padding: 52px 0; }
-  .cards, .coop, .price-wrap { grid-template-columns: 1fr; }
+  .cards, .coop, .price-wrap, .steps { grid-template-columns: 1fr; }
   .hero { padding: 56px 0 44px; }
+  .hero-grid, .split, .showcase { grid-template-columns: 1fr; gap: 28px; }
+  .hero-media { order: -1; }
+  .hero-media img, .hero-media video { min-height: 0; max-height: 340px; }
+  .fullbleed-cap { padding: 48px 20px 20px; }
+  .phone { flex-basis: 144px; }
   .topmeta { display: none; }
 }
 </style>
@@ -127,26 +256,38 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 <header class="topbar">
   <div class="topbar-inner">
     <div class="cobrand">
-      <span>Lucie Schnitzer</span>
+      <span>Biofeedback</span>
       <span class="x">×</span>
       <span class="who">Susanne Schröder-Böse</span>
     </div>
-    <span class="topmeta">Biofeedback · Nervensystem-Regulation</span>
+    <span class="topmeta">6 bis 12 Wochen · Nervensystem-Regulation</span>
     <a href="#interesse" class="btn btn--primary topbar-cta">Ich habe Interesse</a>
   </div>
 </header>
 
 <!-- ===== Hero ===== -->
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Von der Reaktion zur Selbstregulation</p>
-    <h1 class="measure">Wie Du lernst, Dein Nervensystem zu steuern, anstatt vom Stress gesteuert zu werden.</h1>
-    <p class="tagline">Stress verstehen <span>·</span> Kontrolle gewinnen <span>·</span> Besser performen</p>
-    <p class="lede measure">Durch Biofeedback lernst Du, Dein Nervensystem bewusst zu lesen und zu regulieren. Für mehr Fokus, Energie, Gelassenheit und Kontrolle im Alltag.</p>
-    <div class="cta-row" style="margin-top:28px">
-      <a href="#interesse" class="btn btn--primary">Ich habe Interesse</a>
-      <a href="#wie" class="btn btn--ghost">Wie es funktioniert</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Von der Reaktion zur Selbstregulation</p>
+      <h1>Steuere Dein Nervensystem, anstatt vom Stress gesteuert zu werden.</h1>
+      <p class="tagline">Stress verstehen <span>·</span> Kontrolle gewinnen <span>·</span> Besser performen</p>
+      <p class="lede">In 6 bis 12 Wochen lernst Du, Dein Nervensystem bewusst zu lesen und zu regulieren, damit Du mehr Fokus, Energie und Gelassenheit gewinnst und im Alltag die Kontrolle zurückbekommst.</p>
+      <div class="prog-meta" style="margin-top:24px">
+        <span class="pill">Mein persönliches Programm</span>
+        <span class="pill">6 bis 12 Wochen, individuell nach Assessment und Zielen</span>
+      </div>
+      <div class="cta-row">
+        <a href="#interesse" class="btn btn--primary">Ich habe Interesse</a>
+        <a href="#programm" class="btn btn--ghost">So läuft das Programm</a>
+      </div>
+      <p class="trust">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a> · MSc Applied Neuroscience.</p>
     </div>
+    <figure class="hero-media">
+      <video autoplay muted loop playsinline poster="assets/media/work-hero.jpg" aria-label="Eine Klientin atmet mit dem Atemsensor während einer Biofeedback-Session">
+        <source src="assets/media/home-header.mp4" type="video/mp4" />
+      </video>
+    </figure>
   </div>
 </section>
 
@@ -181,23 +322,117 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
   </div>
 </section>
 
+<!-- ===== Integration into Susanne's work ===== -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-copy">
+        <p class="eyebrow">So fügt es sich ein</p>
+        <h2>Eine messbare Ebene für unsere Arbeit.</h2>
+        <p>Ich begleite Dich ganzheitlich, körperlich, geistig und seelisch. Biofeedback ergänzt diese Begleitung um eine messbare Ebene und macht sichtbar, wie Dein Nervensystem reagiert. So bekommt unsere Zusammenarbeit über die Wochen einen objektiven Bezugspunkt.</p>
+        <ul class="ticks">
+          <li>Ganzheitlich und messbar: Meine Arbeit bekommt eine objektive, körperliche Bezugsgröße.</li>
+          <li>Selbstregulation, sichtbar gemacht: Was im Coaching entsteht, wird über die Messwerte trainierbar.</li>
+          <li>Begleitung über 6 bis 12 Wochen: Die Daten zeigen Fortschritt und geben unserer Arbeit Richtung.</li>
+        </ul>
+      </div>
+      <figure class="split-media">
+        <img src="assets/media/about-portrait.jpg" alt="Susanne Schröder-Böse in der Begleitung mit einer Klientin" loading="lazy" />
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ===== How it works ===== -->
 <section class="section" id="wie">
   <div class="wrap">
-    <p class="eyebrow">Wie es funktioniert</p>
-    <h2 class="measure">Biofeedback macht in Echtzeit sichtbar, wie Dein Körper auf Stress, Druck und Gedanken reagiert.</h2>
-    <p class="measure">Über messbare Signale aus Deinem Körper sehen wir gemeinsam, was sich unter der Oberfläche abspielt, während es passiert.</p>
-    <div class="signals">
-      <span class="chip">Atmung</span>
-      <span class="chip">Herzparameter</span>
-      <span class="chip">Muskelspannung</span>
+    <div class="split">
+      <div class="split-copy">
+        <p class="eyebrow">Wie es funktioniert</p>
+        <h2>Biofeedback macht in Echtzeit sichtbar, wie Dein Körper auf Stress, Druck und Gedanken reagiert.</h2>
+        <p>Über Dioden und messbare Signale aus Deinem Körper sehen wir gemeinsam, was sich unter der Oberfläche abspielt, während es passiert.</p>
+      </div>
+      <figure class="split-media">
+        <video class="loop-video" autoplay muted loop playsinline poster="assets/media/work-hero.jpg">
+          <source src="assets/media/method-header.mp4" type="video/mp4" />
+        </video>
+      </figure>
     </div>
-    <p class="measure" style="margin-top:28px"><strong>Die zentrale Erkenntnis:</strong> Stress passiert nicht einfach mit Dir. Du hast direkten Einfluss auf Dein Nervensystem und damit auf Deinen Fokus, Deine Energie, Deine Gelassenheit und Deine Leistungsfähigkeit.</p>
+    <p class="measure" style="margin-top:40px">Sechs Biomarker ergeben zusammen ein vollständiges Bild Deines Nervensystems.</p>
+    <div class="cards bio-cards">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Herzfrequenz</h3>
+        <p>Herzfrequenz in Ruhe und Herzratenvariabilität (HRV). Das aktive Signal dafür, wie flexibel Dein autonomes Nervensystem zwischen Zuständen wechselt.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Muskelspannung (sEMG)</h3>
+        <p>Oberflächen-EMG an gezielten Muskelketten. Die Spannung, die Du hältst, und Deine Fähigkeit, sie wieder loszulassen.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Hautleitwert (EDA)</h3>
+        <p>Elektrodermale Aktivität, tonisch und phasisch. Wie lange Deine Stressreaktion erhöht bleibt, nachdem ein Auslöser vorbei ist.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3>Atmung</h3>
+        <p>Frequenz und Tiefe unter Belastung. Ob Dein Atemmuster Dir hilft oder Dich Energie kostet.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3>Hirndurchblutung (HEG)</h3>
+        <p>Hämoenzephalographie, die Durchblutung des präfrontalen Kortex. Ob Dein Denkvermögen zwischen Zuständen an- und abschalten kann.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="card">
+        <span class="num">06</span>
+        <h3>Hauttemperatur</h3>
+        <p>Periphere Gefäßverengung und Erholungszeit. Wohin der Blutfluss geht, nachdem ein Stressor aktiviert wurde.</p>
+        <div class="spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <p class="measure" style="margin-top:40px"><strong>Die zentrale Erkenntnis:</strong> Stress passiert nicht einfach mit Dir. Du hast direkten Einfluss auf Dein Nervensystem und damit auf Deinen Fokus, Deine Energie, Deine Gelassenheit und Deine Leistungsfähigkeit.</p>
+  </div>
+</section>
+
+<!-- ===== Device showcase: practice dashboard + app =====
+     NOTE: desktop side uses the real in-session photo (live dashboard on the monitor),
+     since no clean standalone dashboard screenshot exists yet. Swap in a clean dashboard
+     screenshot inside a browser frame when available. Phones use the real, current app. -->
+<section class="section section--paper">
+  <div class="wrap">
+    <p class="eyebrow">Gemessen und begleitet</p>
+    <h2 class="measure">In der Praxis gemessen. Im Alltag trainiert.</h2>
+    <p class="measure">Im Assessment und in den Sessions werden Deine Signale live sichtbar. Zwischen den Terminen trainierst Du mit der App weiter, damit aus Erkenntnis über die Wochen eine Gewohnheit wird.</p>
+    <div class="showcase">
+      <figure class="device-browser-fig">
+        <div class="device-browser">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr">Dashboard · Assessment</span></div>
+          <div class="browser-scroll">
+            <img src="assets/media/assessment.png" alt="Beispiel-Assessment im Dashboard: Resilienz-Score, psychophysiologisches Profil und Erholung nach System" loading="lazy" />
+          </div>
+        </div>
+        <figcaption>Im Dashboard: Dein Assessment mit Score, Profil und Erholung. Scrollbare Beispielansicht, anonymisiert.</figcaption>
+      </figure>
+      <div class="phone-col">
+        <div class="phones">
+          <div class="phone"><img src="assets/media/app-today.png" alt="Die App zeigt den Tagesplan: Morgenmessung, Training und Tagesprotokoll" loading="lazy" /></div>
+          <div class="phone"><img src="assets/media/app-training.png" alt="Die App führt durch eine Atemtraining-Session in Echtzeit" loading="lazy" /></div>
+        </div>
+        <p class="phones-cap">Im Alltag: Dein tägliches Training in der App.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== Outcomes ===== -->
-<section class="section section--paper">
+<section class="section">
   <div class="wrap">
     <p class="eyebrow">Was Du mitnimmst</p>
     <h2 class="measure">Konkrete, greifbare Ergebnisse aus jeder Session.</h2>
@@ -210,75 +445,96 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       <div class="card">
         <span class="num">02</span>
         <h3>Messbares Verständnis Deines Körpers</h3>
-        <p>Du siehst über die Messwerte, wie Dein Körper auf Stress reagiert und welche Strategien ihn wieder in Balance bringen. Die Hebel Deines Nervensystems kennen.</p>
+        <p>Du siehst objektiv über die Messwerte, wie Dein Körper auf Stress reagiert und welche Strategien ihn nachweislich wieder in Balance bringen. Die Hebel Deines Nervensystems kennen.</p>
       </div>
       <div class="card">
         <span class="num">03</span>
         <h3>Werkzeuge für den Alltag</h3>
-        <p>Du nimmst Methoden mit, mit denen Du Fokus und innere Stabilität gezielt trainierst und im Moment abrufen kannst.</p>
+        <p>Mehr Fokus und innere Stabilität auf Knopfdruck trainieren. Du nimmst Methoden mit, die Du gezielt aufbaust und im Moment abrufen kannst.</p>
       </div>
     </div>
     <p class="lede measure" style="margin-top:34px">Du verlässt die Session nicht nur mit einem besseren Verständnis Deiner Belastung, sondern mit konkretem Wissen, wie Du Deinen Zustand aktiv beeinflussen kannst.</p>
   </div>
 </section>
 
-<!-- ===== Cooperation / positioning =====
-     EDITABLE: exact wording of who-does-what is still being finalised with Susanne. -->
-<section class="section">
+<!-- ===== The program arc ===== -->
+<section class="section section--paper" id="programm">
   <div class="wrap">
-    <p class="eyebrow">Die Zusammenarbeit</p>
-    <h2 class="measure">Zwei Perspektiven, eine Methode.</h2>
-    <div class="coop">
-      <div class="coop-card editable">
-        <p class="role">Methode</p>
-        <p class="name">Lucie Schnitzer</p>
-        <p>Entwicklerin der Methode und Biofeedback-Praktikerin. Sie liest und interpretiert die Messwerte Deines Nervensystems und leitet daraus Dein Training ab.</p>
+    <p class="eyebrow">So läuft das Programm</p>
+    <h2 class="measure">Ein klarer Weg über 6 bis 12 Wochen.</h2>
+    <p class="measure">Der Umfang richtet sich nach Deinem Assessment und Deinen Zielen. Ich führe durch jede Session, die Auswertung Deiner Messwerte übernehmen wir für Dich.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-no">01</span>
+        <h3>Assessment</h3>
+        <p>Wir messen, wie Dein Nervensystem auf Stress, Druck und Gedanken reagiert. Deine Muster werden sichtbar, und daraus entsteht Dein persönlicher Plan.</p>
+        <span class="dur">Der Start</span>
       </div>
-      <div class="coop-card editable">
-        <p class="role">Begleitung</p>
-        <p class="name">Susanne Schröder-Böse</p>
-        <p>Begleitet Dich im Prozess und schlägt die Brücke zwischen den Erkenntnissen und Deinem Alltag.</p>
+      <div class="step">
+        <span class="step-no">02</span>
+        <h3>Dein Programm</h3>
+        <p>Über die Wochen trainierst Du in den Sessions und mit der App. Du lernst, Deinen Körper gezielt in einen ruhigeren und leistungsfähigeren Zustand zu bringen.</p>
+        <span class="dur">6 bis 12 Wochen</span>
+      </div>
+      <div class="step">
+        <span class="step-no">03</span>
+        <h3>Selbststeuerung</h3>
+        <p>Du gehst von der Reaktion zur Selbststeuerung über und nimmst konkrete Werkzeuge mit, die Du im Alltag jederzeit abrufen kannst.</p>
+        <span class="dur">Für danach</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Pricing =====
-     EDITABLE: final pricing + split still to be confirmed. Values below are reference points only. -->
+<!-- ===== Cooperation / positioning ===== -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Die Zusammenarbeit</p>
+    <h2 class="measure">Mein Programm, auf einer erprobten Methode.</h2>
+    <div class="coop">
+      <div class="coop-card">
+        <!-- Placeholder monogram: swap for Susanne's portrait once available. -->
+        <div class="avatar avatar--mono">SB</div>
+        <p class="role">Dein Programm</p>
+        <p class="name">Susanne Schröder-Böse</p>
+        <p>Ich führe das Programm und arbeite direkt mit Dir. Ich begleite jede Session und übersetze die Erkenntnisse in konkrete Schritte für Deinen Alltag, Deinen Beruf und Deine Beziehungen.</p>
+      </div>
+      <div class="coop-card">
+        <img class="avatar" src="assets/media/lucie-portrait.jpg" alt="Lucie Schnitzer" loading="lazy" style="object-position: 70% 32%;" />
+        <p class="role">Die Methode</p>
+        <p class="name">Lucie Schnitzer</p>
+        <p>Lucie ist Neurowissenschaftlerin und hat die Default Resilient Method entwickelt. Sie steht hinter der Analyse, wertet die Signale Deines Nervensystems aus und erstellt den Report, auf dem Dein Training aufbaut.</p>
+        <p class="trust" style="margin-top:14px">Mehr zur Methode: <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">lucieschnitzer.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Investition (placeholder — positioning + price to be set with Susanne) -->
 <section class="section section--paper">
   <div class="wrap center">
     <p class="eyebrow">Investition</p>
-    <h2 class="measure">Transparente Richtwerte.</h2>
-    <div class="price-wrap" style="max-width:680px;margin-left:auto;margin-right:auto">
-      <div class="price-card">
-        <p class="plan">Session mit Analyse</p>
-        <p class="amount">ca. 150&nbsp;€</p>
-        <p class="unit">inkl. Auswertung Deiner Messwerte</p>
-      </div>
-      <div class="price-card">
-        <p class="plan">Einzelsession</p>
-        <p class="amount">110&nbsp;€</p>
-        <p class="unit">60 Minuten in der Praxis</p>
-      </div>
-    </div>
-    <p class="price-note measure">Die finale Preisgestaltung wird individuell bestätigt.</p>
+    <div class="placeholder-box">Platzhalter – Positionierung und Preis folgen nach Abstimmung mit Susanne.</div>
   </div>
 </section>
+
 
 <!-- ===== Final CTA ===== -->
 <section class="section section--dark final" id="interesse">
   <div class="wrap">
     <p class="eyebrow" style="color:var(--primary-40)">Der erste Schritt</p>
     <h2 class="measure" style="margin-left:auto;margin-right:auto">Finde heraus, was Dein Nervensystem Dir zeigt.</h2>
-    <p class="measure" style="margin:0 auto 30px">Schreib uns kurz, und wir melden uns mit den nächsten Schritten.</p>
+    <p class="measure" style="margin:0 auto 12px">Ein Programm über 6 bis 12 Wochen, individuell nach Deinem Assessment. Ich begleite jeden Schritt.</p>
+    <p class="measure" style="margin:0 auto 30px">Schreib kurz, und ich melde mich mit den nächsten Schritten.</p>
     <a href="mailto:lucie@example.com?subject=Ich%20habe%20Interesse" class="btn btn--inverse">Ich habe Interesse</a>
+    <p class="trust" style="color:var(--fg-on-dark-2);margin-top:20px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener" style="color:var(--primary-40)">Lucie Schnitzer</a></p>
   </div>
 </section>
 
 <!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap">
-    Lucie Schnitzer · The Default Resilient Method &nbsp;·&nbsp; in Zusammenarbeit mit Susanne Schröder-Böse
+    Biofeedback-Programm mit Susanne Schröder-Böse &nbsp;·&nbsp; auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a>
   </div>
 </footer>
 
