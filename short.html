@@ -467,7 +467,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
     <span class="places-badge">Pilotprogramm · 10 Plätze</span>
     <p class="eyebrow">Der erste Schritt</p>
     <h2 class="measure" style="margin-left:auto;margin-right:auto">Zeig Interesse an einem der ersten Plätze.</h2>
-    <p class="measure" style="margin:0 auto 6px">Wir starten mit einer kleinen Gruppe über 12 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
+    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet in der zweiten Septemberwoche 2026 und läuft über 12 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
 
     <form class="apply" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
       <input type="hidden" name="_subject" value="Neue Interessensbekundung über die Landingpage" />
@@ -481,11 +481,6 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
           <label class="q" for="email">E-Mail</label>
           <input type="email" id="email" name="email" required />
         </div>
-      </div>
-
-      <div class="field">
-        <label class="q" for="ort">Wohnort oder Land <span class="hint" style="display:inline">(optional)</span></label>
-        <input type="text" id="ort" name="Wohnort_Land" />
       </div>
 
       <div class="field">
@@ -574,5 +569,24 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
   </div>
 </footer>
 
+<script>
+  // Require at least one selection in each checkbox group (F3, F4).
+  // Sets every box in the group as `required` until one is checked, so the
+  // browser's native validation blocks submit when none are selected.
+  (function () {
+    var form = document.querySelector('form.apply');
+    if (!form) return;
+    ['F3_Stress-Signale', 'F4_Vorerfahrung'].forEach(function (name) {
+      var boxes = form.querySelectorAll('input[name="' + name + '"]');
+      if (!boxes.length) return;
+      function sync() {
+        var any = Array.prototype.some.call(boxes, function (b) { return b.checked; });
+        Array.prototype.forEach.call(boxes, function (b) { b.required = !any; });
+      }
+      Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', sync); });
+      sync();
+    });
+  })();
+</script>
 </body>
 </html>
