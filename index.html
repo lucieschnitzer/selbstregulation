@@ -210,6 +210,41 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 .trust a { color: var(--accent); text-decoration: none; font-weight: 600; }
 .trust a:hover { text-decoration: underline; }
 
+/* Interest form + questionnaire */
+.apply { max-width: 720px; margin: 36px auto 0; text-align: left; }
+.apply .field { margin-bottom: 26px; }
+.apply label.q { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 16px; color: var(--fg-1); margin-bottom: 10px; }
+.apply label.q .num { color: var(--accent); margin-right: 8px; }
+.apply .hint { font-family: var(--font-sans); font-weight: 400; font-size: 14px; color: var(--fg-4); margin: 4px 0 12px; }
+.apply input[type="text"], .apply input[type="email"], .apply textarea {
+  width: 100%; font-family: var(--font-sans); font-size: 15px; color: var(--fg-1);
+  background: var(--surface); border: 1px solid var(--border-strong); border-radius: 0;
+  padding: 13px 14px; transition: border-color var(--dur-fast);
+}
+.apply textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
+.apply input:focus, .apply textarea:focus { outline: none; border-color: var(--accent); }
+.apply .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* scale (radio row) */
+.scale { display: flex; flex-wrap: wrap; gap: 8px; }
+.scale label { cursor: pointer; }
+.scale input { position: absolute; opacity: 0; width: 0; height: 0; }
+.scale span { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 6px; font-family: var(--font-sans); font-weight: 600; font-size: 15px; color: var(--fg-2); background: var(--surface); border: 1px solid var(--border-strong); }
+.scale input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+.scale input:focus-visible + span { border-color: var(--accent); }
+.scale-ends { display: flex; justify-content: space-between; font-family: var(--font-sans); font-size: 13px; color: var(--fg-4); margin-top: 8px; }
+/* checkbox + radio choice list */
+.choices { display: grid; gap: 10px; }
+.choices.two { grid-template-columns: 1fr 1fr; }
+.choice { display: flex; align-items: flex-start; gap: 11px; font-family: var(--font-sans); font-size: 15px; color: var(--fg-2); cursor: pointer; padding: 11px 14px; border: 1px solid var(--border-strong); background: var(--surface); }
+.choice input { margin: 2px 0 0; accent-color: var(--accent); width: 17px; height: 17px; flex-shrink: 0; }
+.choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.consent { display: flex; align-items: flex-start; gap: 11px; font-family: var(--font-sans); font-size: 14px; color: var(--fg-3); line-height: 1.5; margin: 8px 0 24px; text-align: left; }
+.consent input { margin-top: 3px; accent-color: var(--accent); width: 17px; height: 17px; flex-shrink: 0; }
+.apply .btn { width: 100%; justify-content: center; font-size: 16px; padding: 17px; }
+.apply .privacy-note { font-family: var(--font-sans); font-size: 13px; color: var(--fg-4); margin-top: 16px; text-align: center; }
+.places-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-strong); background: var(--accent-soft); border: 1px solid var(--primary-20); padding: 7px 16px; margin-bottom: 18px; }
+@media (max-width: 600px) { .apply .row2, .choices.two { grid-template-columns: 1fr; } }
+
 /* Program steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
 .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-subtle); }
@@ -515,15 +550,111 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 </section>
 
 
-<!-- ===== Final CTA ===== -->
-<section class="section section--dark final" id="interesse">
-  <div class="wrap">
-    <p class="eyebrow" style="color:var(--primary-40)">Der erste Schritt</p>
-    <h2 class="measure" style="margin-left:auto;margin-right:auto">Finde heraus, was Dein Nervensystem Dir zeigt.</h2>
-    <p class="measure" style="margin:0 auto 12px">Ein Programm über 6 bis 12 Wochen, individuell nach Deinem Assessment. Ich begleite jeden Schritt.</p>
-    <p class="measure" style="margin:0 auto 30px">Schreib kurz, und ich melde mich mit den nächsten Schritten.</p>
-    <a href="mailto:lucie@example.com?subject=Ich%20habe%20Interesse" class="btn btn--inverse">Ich habe Interesse</a>
-    <p class="trust" style="color:var(--fg-on-dark-2);margin-top:20px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener" style="color:var(--primary-40)">Lucie Schnitzer</a></p>
+<!-- ===== Interest form + questionnaire ===== -->
+<!-- FORMSPREE: replace the form ID in `action` below with your own (see handoff notes).
+     Field names are German so the email Susanne + Lucie receive reads cleanly. -->
+<section class="section section--paper" id="interesse">
+  <div class="wrap center">
+    <span class="places-badge">Pilotprogramm · 10 Plätze</span>
+    <p class="eyebrow">Der erste Schritt</p>
+    <h2 class="measure" style="margin-left:auto;margin-right:auto">Bewirb Dich für einen der ersten Plätze.</h2>
+    <p class="measure" style="margin:0 auto 6px">Wir starten mit einer kleinen Gruppe über 8 bis 12 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
+
+    <form class="apply" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" value="Neue Pilot-Bewerbung über die Landingpage" />
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="vorname">Vorname</label>
+          <input type="text" id="vorname" name="Vorname" required />
+        </div>
+        <div class="field">
+          <label class="q" for="email">E-Mail</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="ort">Wohnort oder Land <span class="hint" style="display:inline">(optional)</span></label>
+        <input type="text" id="ort" name="Wohnort_Land" />
+      </div>
+
+      <div class="field">
+        <label class="q" for="f1"><span class="num">1.</span>Was möchtest Du mit diesem Programm verändern, und warum gerade jetzt?</label>
+        <textarea id="f1" name="F1_Anliegen" required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q"><span class="num">2.</span>Wie gestresst fühlst Du Dich an einem ganz normalen Tag?</label>
+        <div class="scale">
+          <label><input type="radio" name="F2_Stresslevel" value="1" required /><span>1</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="2" /><span>2</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="3" /><span>3</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="4" /><span>4</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="5" /><span>5</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="6" /><span>6</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="7" /><span>7</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="8" /><span>8</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="9" /><span>9</span></label>
+          <label><input type="radio" name="F2_Stresslevel" value="10" /><span>10</span></label>
+        </div>
+        <div class="scale-ends"><span>1 · ruhig und ausgeglichen</span><span>10 · fast ständig unter Anspannung</span></div>
+      </div>
+
+      <div class="field">
+        <label class="q"><span class="num">3.</span>Woran merkst Du, dass Dein Körper unter Stress steht?</label>
+        <p class="hint">Wähle alles, was auf Dich zutrifft.</p>
+        <div class="choices two">
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Schlafprobleme" />Schlafprobleme</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Gedankenkreisen / schwer abschalten" />Gedankenkreisen oder schwer abschalten können</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Innere Unruhe oder Angst" />Innere Unruhe oder Angst</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Reizbarkeit" />Reizbarkeit oder dünnes Nervenkostüm</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Körperliche Anspannung" />Körperliche Anspannung (Kiefer, Schultern, Nacken)</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Flache Atmung in die Brust" />Flache Atmung, eher in die Brust als in den Bauch</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Erschöpfung trotz Ruhe" />Erschöpfung, auch nach Ruhepausen</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Magen / Verdauung" />Magen oder Verdauung</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Konzentrationsprobleme" />Schwierigkeiten, Dich zu konzentrieren</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Etwas anderes" />Etwas anderes</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q"><span class="num">4.</span>Womit hast Du schon Erfahrung gesammelt?</label>
+        <p class="hint">Wähle alles, was zutrifft.</p>
+        <div class="choices two">
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Meditation / Achtsamkeit" />Meditation oder Achtsamkeit</label>
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Atemübungen" />Atemübungen</label>
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Therapie / Coaching" />Therapie oder Coaching</label>
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="HRV / Wearables / Tracker" />HRV, Wearables oder andere Tracker</label>
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Erfahrung mit ADHS / Angst / depressiven Phasen" />Erfahrung mit ADHS, Angst oder depressiven Phasen</label>
+          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Noch nichts davon, aber neugierig" />Noch nichts davon, aber ich bin neugierig</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q"><span class="num">5.</span>Das Programm läuft über 8 bis 12 Wochen und lebt von etwas täglicher Übung. Wie gut passt das gerade in Dein Leben?</label>
+        <div class="scale">
+          <label><input type="radio" name="F5_Passung" value="1" required /><span>1</span></label>
+          <label><input type="radio" name="F5_Passung" value="2" /><span>2</span></label>
+          <label><input type="radio" name="F5_Passung" value="3" /><span>3</span></label>
+          <label><input type="radio" name="F5_Passung" value="4" /><span>4</span></label>
+          <label><input type="radio" name="F5_Passung" value="5" /><span>5</span></label>
+        </div>
+        <div class="scale-ends"><span>1 · schwierig gerade</span><span>5 · passt gut</span></div>
+        <p class="hint" style="margin-top:18px">Und was hast Du bisher schon ausprobiert, und was hat Dir dabei gefehlt?</p>
+        <textarea name="F5_Bisher_probiert" required></textarea>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="Einverstaendnis" value="ja" required />
+        <span>Ich bin einverstanden, dass Susanne Schröder-Böse und Lucie Schnitzer meine Angaben verwenden, um sich wegen eines Pilotplatzes bei mir zu melden.</span>
+      </label>
+
+      <button type="submit" class="btn btn--primary">Bewerbung absenden</button>
+      <p class="privacy-note">Wir melden uns innerhalb einer Woche bei Dir. Deine Angaben behandeln wir vertraulich.</p>
+    </form>
+
+    <p class="trust" style="margin-top:28px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a></p>
   </div>
 </section>
 
