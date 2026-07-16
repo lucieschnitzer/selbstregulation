@@ -498,8 +498,9 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
     <h2 class="measure" style="margin-left:auto;margin-right:auto">Zeig Interesse an einem der ersten Plätze.</h2>
     <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet in der zweiten Septemberwoche 2026 und umfasst 12 Sitzungen über 12–15 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
 
-    <form class="apply" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
-      <input type="hidden" name="_subject" value="Neue Interessensbekundung über die Landingpage" />
+    <form class="apply" action="/api/interesse" method="POST">
+      <!-- Honeypot: hidden from humans, bots fill it and get silently dropped. -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" />
 
       <div class="row2">
         <div class="field">
@@ -614,6 +615,36 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       }
       Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', sync); });
       sync();
+    });
+  })();
+
+  // Submit via fetch so the thank-you shows inline. Native constraint
+  // validation has already passed by the time 'submit' fires. If fetch
+  // fails, fall back to a plain form POST (server renders a danke page).
+  (function () {
+    var form = document.querySelector('form.apply');
+    if (!form || !window.fetch) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet…';
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      }).then(function (r) {
+        if (!r.ok) throw new Error('send failed');
+        form.innerHTML = '<div style="text-align:center;padding:32px 12px">' +
+          '<h3 style="margin:0 0 10px">Danke, Deine Interessensbekundung ist angekommen.</h3>' +
+          '<p style="margin:0">Wir melden uns innerhalb einer Woche bei Dir.</p></div>';
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Interesse absenden';
+        var note = form.querySelector('.privacy-note');
+        if (note) note.textContent = 'Das hat gerade nicht geklappt. Versuch es bitte noch einmal, oder schreib uns direkt an info@lucieschnitzer.com.';
+      });
     });
   })();
 </script>
