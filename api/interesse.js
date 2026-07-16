@@ -12,6 +12,22 @@ const RECIPIENTS = ["info@lucieschnitzer.com", "kontakt@schroeder-boese.coach"];
 const TEST_RECIPIENTS = ["info@lucieschnitzer.com"]; // `_test` submissions skip Susanne
 const FROM = "Selbstregulations-Programm <info@lucieschnitzer.com>";
 
+// The long page also gets embedded on Susanne's own website (cms Morpheus),
+// so its fetch-POST arrives cross-origin from her domain.
+const ALLOWED_ORIGINS = [
+  "https://selbstregulation.vercel.app",
+  "https://schroeder-boese.coach",
+  "https://www.schroeder-boese.coach",
+];
+
+function setCors(req, res) {
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+}
+
 const FIELDS = [
   ["Vorname", "Vorname"],
   ["email", "E-Mail"],
@@ -37,6 +53,12 @@ function asText(v) {
 }
 
 export default async function handler(req, res) {
+  setCors(req, res);
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+    return res.status(204).end();
+  }
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ ok: false, error: "Method not allowed" });
