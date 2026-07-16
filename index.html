@@ -711,6 +711,18 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
   // Submit via fetch so the thank-you shows inline. Native constraint
   // validation has already passed by the time 'submit' fires. If fetch
   // fails, fall back to a plain form POST (server renders a danke page).
+  // Opening the page with ?test=1 marks submissions as tests (email goes to
+  // Lucie only, not Susanne) — for web-designer checks after embedding.
+  (function () {
+    var form = document.querySelector('form.apply');
+    if (!form) return;
+    if (/[?&]test=1/.test(location.search)) {
+      var t = document.createElement('input');
+      t.type = 'hidden'; t.name = '_test'; t.value = '1';
+      form.appendChild(t);
+    }
+  })();
+
   (function () {
     var form = document.querySelector('form.apply');
     if (!form || !window.fetch) return;
