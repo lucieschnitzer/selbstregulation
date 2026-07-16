@@ -562,12 +562,12 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
           <div class="price-card" style="opacity:0.72">
             <p class="plan">Regulärer Preis</p>
             <p class="amount">2.990 €</p>
-            <p class="unit">für das gesamte Programm · 12 Sitzungen · inkl. MwSt</p>
+            <p class="unit">für das gesamte Programm · 12 Sitzungen · zzgl. MwSt</p>
           </div>
           <div class="price-card" style="border-color:var(--accent);border-width:2px">
             <p class="plan" style="color:var(--accent-strong)">Pilotpreis · erste 10 Plätze</p>
             <p class="amount">1.099 €</p>
-            <p class="unit">einmaliger Testpreis · inkl. MwSt</p>
+            <p class="unit">einmaliger Testpreis · zzgl. MwSt</p>
             <a href="#interesse" class="btn btn--primary" style="margin-top:20px;width:100%;justify-content:center">Ich sichere mir einen Pilotplatz</a>
           </div>
         </div>
@@ -579,7 +579,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 
 
 <!-- ===== Interest form + questionnaire ===== -->
-<!-- FORMSPREE: replace the form ID in `action` below with your own (see handoff notes).
+<!-- Posts to /api/interesse (Vercel serverless + Resend).
      Field names are German so the email Susanne + Lucie receive reads cleanly. -->
 <section class="section section--paper" id="interesse">
   <div class="wrap center">
@@ -671,11 +671,11 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 
       <label class="consent">
         <input type="checkbox" name="Einverstaendnis" value="ja" required />
-        <span>Ich bin einverstanden, dass Susanne Schröder-Böse und Lucie Schnitzer meine Angaben verwenden, um sich wegen eines Pilotplatzes bei mir zu melden.</span>
+        <span>Ich bin einverstanden, dass Susanne Schröder-Böse und Lucie Schnitzer meinen Vornamen, meine E-Mail-Adresse und meine Antworten speichern und verwenden, um sich wegen eines Pilotplatzes bei mir zu melden. Dieses Einverständnis kann ich jederzeit formlos per E-Mail an kontakt@schroeder-boese.coach widerrufen. Kommt keine Teilnahme zustande, werden meine Angaben gelöscht.</span>
       </label>
 
       <button type="submit" class="btn btn--primary">Interesse absenden</button>
-      <p class="privacy-note">Wir melden uns innerhalb einer Woche bei Dir. Deine Angaben behandeln wir vertraulich.</p>
+      <p class="privacy-note">Wir melden uns innerhalb einer Woche bei Dir. Deine Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
     </form>
 
     <p class="trust" style="margin-top:28px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a></p>
