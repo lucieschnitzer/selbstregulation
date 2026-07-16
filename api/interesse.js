@@ -77,6 +77,26 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: "Vorname oder E-Mail fehlt." });
   }
 
+  // Every question is mandatory. The browser enforces this too (required
+  // attributes + checkbox-group script); this catches no-JS and direct POSTs.
+  const REQUIRED = [
+    "F1_Anliegen",
+    "F2_Stresslevel",
+    "F3_Stress-Signale",
+    "F4_Vorerfahrung",
+    "F5_Passung",
+    "F5_Bisher_probiert",
+    "Einverstaendnis",
+  ];
+  const missing = REQUIRED.filter((key) => asText(body[key]).trim() === "");
+  if (missing.length > 0) {
+    return res.status(400).json({
+      ok: false,
+      error: "Bitte beantworte alle Fragen des Formulars.",
+      missing,
+    });
+  }
+
   const isTest = asText(body._test).trim() !== "";
 
   const rows = FIELDS.map(([key, label]) => {
