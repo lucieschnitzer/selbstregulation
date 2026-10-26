@@ -31,7 +31,7 @@ function setCors(req, res) {
 const FIELDS = [
   ["Vorname", "Vorname"],
   ["email", "E-Mail"],
-  ["F1_Anliegen", "1. Was möchtest Du verändern, und warum jetzt?"],
+  ["F1_Anliegen", "1. Was möchten Sie verändern, und warum jetzt?"],
   ["F2_Stresslevel", "2. Stresslevel an einem normalen Tag (1–10)"],
   ["F3_Stress-Signale", "3. Stress-Signale im Körper"],
   ["F4_Vorerfahrung", "4. Vorerfahrung"],
@@ -92,7 +92,7 @@ export default async function handler(req, res) {
   if (missing.length > 0) {
     return res.status(400).json({
       ok: false,
-      error: "Bitte beantworte alle Fragen des Formulars.",
+      error: "Bitte beantworten Sie alle Fragen des Formulars.",
       missing,
     });
   }
@@ -145,7 +145,7 @@ export default async function handler(req, res) {
     return res.status(200).send(
       `<!doctype html><html lang="de"><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Danke</title>
       <body style="font-family:Arial,Helvetica,sans-serif;display:grid;place-items:center;min-height:90vh;color:#515762;text-align:center;padding:24px">
-      <div><h1>Danke, ${escapeHtml(vorname)}.</h1><p>Deine Interessensbekundung ist angekommen. Wir melden uns zeitnah bei Dir.</p>
+      <div><h1>Vielen Dank, ${escapeHtml(vorname)}.</h1><p>Ihre Interessensbekundung ist angekommen. Wir melden uns zeitnah bei Ihnen.</p>
       <p><a href="/" style="color:#A4A859">Zurück zur Seite</a></p></div></body></html>`
     );
   }

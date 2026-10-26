@@ -156,8 +156,8 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
   <div class="wrap center">
     <span class="places-badge">Pilotprogramm · 10 Plätze</span>
     <p class="eyebrow">Anmeldung</p>
-    <h1 class="measure" style="margin-left:auto;margin-right:auto;font-size:clamp(32px,5vw,48px)">Zeig Interesse an einem der ersten Plätze.</h1>
-    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet im Frühjahr 2027 und umfasst 9 Sitzungen über 9–11 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns zeitnah bei Dir.</p>
+    <h1 class="measure" style="margin-left:auto;margin-right:auto;font-size:clamp(32px,5vw,48px)">Zeigen Sie Interesse an einem der ersten Plätze.</h1>
+    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet im Frühjahr 2027 und umfasst 9 Sitzungen über 9–11 Wochen. Erzählen Sie uns kurz, worum es bei Ihnen gerade geht, und wir melden uns zeitnah bei Ihnen.</p>
 
     <form class="apply" action="https://selbstregulation.vercel.app/api/interesse" method="POST">
       <!-- Honeypot: hidden from humans, bots fill it and get silently dropped. -->
@@ -175,12 +175,12 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </div>
 
       <div class="field">
-        <label class="q" for="f1"><span class="num">1.</span>Was möchtest Du mit diesem Programm verändern, und warum gerade jetzt?</label>
+        <label class="q" for="f1"><span class="num">1.</span>Was möchten Sie mit diesem Programm verändern, und warum gerade jetzt?</label>
         <textarea id="f1" name="F1_Anliegen" required></textarea>
       </div>
 
       <div class="field">
-        <label class="q"><span class="num">2.</span>Wie gestresst fühlst Du Dich an einem ganz normalen Tag?</label>
+        <label class="q"><span class="num">2.</span>Wie gestresst fühlen Sie sich an einem ganz normalen Tag?</label>
         <div class="scale">
           <label><input type="radio" name="F2_Stresslevel" value="1" required /><span>1</span></label>
           <label><input type="radio" name="F2_Stresslevel" value="2" /><span>2</span></label>
@@ -197,8 +197,8 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </div>
 
       <div class="field">
-        <label class="q"><span class="num">3.</span>Woran merkst Du, dass Dein Körper unter Stress steht?</label>
-        <p class="hint">Wähle alles, was auf Dich zutrifft.</p>
+        <label class="q"><span class="num">3.</span>Woran merken Sie, dass Ihr Körper unter Stress steht?</label>
+        <p class="hint">Wählen Sie alles, was auf Sie zutrifft.</p>
         <div class="choices two">
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Schlafprobleme" />Schlafprobleme</label>
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Gedankenkreisen / schwer abschalten" />Gedankenkreisen oder schwer abschalten können</label>
@@ -208,14 +208,14 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Flache Atmung in die Brust" />Flache Atmung, eher in die Brust als in den Bauch</label>
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Erschöpfung trotz Ruhe" />Erschöpfung, auch nach Ruhepausen</label>
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Magen / Verdauung" />Magen oder Verdauung</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Konzentrationsprobleme" />Schwierigkeiten, Dich zu konzentrieren</label>
+          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Konzentrationsprobleme" />Schwierigkeiten, sich zu konzentrieren</label>
           <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Etwas anderes" />Etwas anderes</label>
         </div>
       </div>
 
       <div class="field">
-        <label class="q"><span class="num">4.</span>Womit hast Du schon Erfahrung gesammelt?</label>
-        <p class="hint">Wähle alles, was zutrifft.</p>
+        <label class="q"><span class="num">4.</span>Womit haben Sie schon Erfahrung gesammelt?</label>
+        <p class="hint">Wählen Sie alles, was zutrifft.</p>
         <div class="choices two">
           <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Meditation / Achtsamkeit" />Meditation oder Achtsamkeit</label>
           <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Atemübungen" />Atemübungen</label>
@@ -227,7 +227,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </div>
 
       <div class="field">
-        <label class="q"><span class="num">5.</span>Das Programm umfasst 9 Sitzungen über 9–11 Wochen, lebt von etwas täglicher Übung und passt sich Deinem individuellen Rhythmus an. Wie gut passt das gerade in Dein Leben?</label>
+        <label class="q"><span class="num">5.</span>Das Programm umfasst 9 Sitzungen über 9–11 Wochen, lebt von etwas täglicher Übung und passt sich Ihrem individuellen Rhythmus an. Wie gut passt das gerade in Ihr Leben?</label>
         <div class="scale">
           <label><input type="radio" name="F5_Passung" value="1" required /><span>1</span></label>
           <label><input type="radio" name="F5_Passung" value="2" /><span>2</span></label>
@@ -236,7 +236,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
           <label><input type="radio" name="F5_Passung" value="5" /><span>5</span></label>
         </div>
         <div class="scale-ends"><span>1 · schwierig gerade</span><span>5 · passt gut</span></div>
-        <p class="hint" style="margin-top:18px">Und was hast Du bisher schon ausprobiert, und was hat Dir dabei gefehlt?</p>
+        <p class="hint" style="margin-top:18px">Und was haben Sie bisher schon ausprobiert, und was hat Ihnen dabei gefehlt?</p>
         <textarea name="F5_Bisher_probiert" required></textarea>
       </div>
 
@@ -246,7 +246,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </label>
 
       <button type="submit" class="btn btn--primary">Interesse absenden</button>
-      <p class="privacy-note">Wir melden uns zeitnah bei Dir. Deine Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
+      <p class="privacy-note">Wir melden uns zeitnah bei Ihnen. Ihre Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
     </form>
 
     <p class="trust" style="margin-top:28px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a></p>
@@ -309,14 +309,14 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       }).then(function (r) {
         if (!r.ok) throw new Error('send failed');
         form.innerHTML = '<div style="text-align:center;padding:32px 12px">' +
-          '<h3 style="margin:0 0 10px">Danke, Deine Interessensbekundung ist angekommen.</h3>' +
-          '<p style="margin:0">Wir melden uns zeitnah bei Dir.</p></div>';
+          '<h3 style="margin:0 0 10px">Vielen Dank, Ihre Interessensbekundung ist angekommen.</h3>' +
+          '<p style="margin:0">Wir melden uns zeitnah bei Ihnen.</p></div>';
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }).catch(function () {
         btn.disabled = false;
         btn.textContent = 'Interesse absenden';
         var note = form.querySelector('.privacy-note');
-        if (note) note.textContent = 'Das hat gerade nicht geklappt. Versuch es bitte noch einmal, oder schreib uns direkt an info@lucieschnitzer.com.';
+        if (note) note.textContent = 'Das hat gerade nicht geklappt. Versuchen Sie es bitte noch einmal, oder schreiben Sie uns direkt an info@lucieschnitzer.com.';
       });
     });
   })();
