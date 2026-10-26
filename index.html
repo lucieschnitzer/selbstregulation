@@ -296,7 +296,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       <span class="who">Susanne Schröder-Böse</span>
     </div>
     <span class="topmeta">12 Sitzungen · Nervensystem-Regulation</span>
-    <a href="#interesse" class="btn btn--primary topbar-cta">Ich habe Interesse</a>
+    <a href="https://selbstregulation.vercel.app/anmeldung" class="btn btn--primary topbar-cta">Ich habe Interesse</a>
   </div>
 </header>
 
@@ -309,7 +309,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       <p class="tagline">Stress verstehen <span>·</span> Kontrolle gewinnen <span>·</span> Besser performen</p>
       <p class="lede">In 12 Sitzungen lernst Du, Dein Nervensystem bewusst zu lesen und zu regulieren, damit Du mehr Fokus, Energie und Gelassenheit gewinnst und im Alltag die Kontrolle zurückbekommst. Echte Messwerte zeigen Dir dabei, wie Dein Alltag auf Deinen Körper wirkt — und was Dir wirklich hilft.</p>
       <div class="cta-row" style="margin-top:28px">
-        <a href="#interesse" class="btn btn--primary">Ich habe Interesse</a>
+        <a href="https://selbstregulation.vercel.app/anmeldung" class="btn btn--primary">Ich habe Interesse</a>
         <a href="#programm" class="btn btn--ghost">So läuft das Programm</a>
       </div>
       <p class="trust">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a> · MSc Applied Neuroscience.</p>
@@ -561,14 +561,14 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
         <div class="price-wrap" style="grid-template-columns:1fr">
           <div class="price-card" style="opacity:0.72">
             <p class="plan">Regulärer Preis</p>
-            <p class="amount">2.990 €</p>
-            <p class="unit">für das gesamte Programm · 12 Sitzungen · zzgl. MwSt</p>
+            <p class="amount">1.690 €</p>
+            <p class="unit">für 9 Sitzungen</p>
           </div>
           <div class="price-card" style="border-color:var(--accent);border-width:2px">
-            <p class="plan" style="color:var(--accent-strong)">Pilotpreis · erste 10 Plätze</p>
+            <p class="plan" style="color:var(--accent-strong)">Pilotpreis – erste 10 Plätze</p>
             <p class="amount">1.099 €</p>
-            <p class="unit">einmaliger Testpreis · zzgl. MwSt</p>
-            <a href="#interesse" class="btn btn--primary" style="margin-top:20px;width:100%;justify-content:center">Ich sichere mir einen Pilotplatz</a>
+            <p class="unit">für 9 Sitzungen</p>
+            <a href="https://selbstregulation.vercel.app/anmeldung" class="btn btn--primary" style="margin-top:20px;width:100%;justify-content:center">Ich sichere mir einen Pilotplatz</a>
           </div>
         </div>
       </div>
@@ -578,106 +578,18 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 </section>
 
 
-<!-- ===== Interest form + questionnaire ===== -->
-<!-- Posts to /api/interesse (Vercel serverless + Resend).
-     Field names are German so the email Susanne + Lucie receive reads cleanly. -->
+<!-- ===== Interest teaser ===== -->
+<!-- The form itself lives on /anmeldung (anmeldung.html). Absolute URL because
+     the long page is also embedded on Susanne's site. -->
 <section class="section section--paper" id="interesse">
   <div class="wrap center">
     <span class="places-badge">Pilotprogramm · 10 Plätze</span>
     <p class="eyebrow">Der erste Schritt</p>
     <h2 class="measure" style="margin-left:auto;margin-right:auto">Zeig Interesse an einem der ersten Plätze.</h2>
-    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet in der zweiten Septemberwoche 2026 und umfasst 12 Sitzungen über 12–15 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
-
-    <form class="apply" action="https://selbstregulation.vercel.app/api/interesse" method="POST">
-      <!-- Honeypot: hidden from humans, bots fill it and get silently dropped. -->
-      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" />
-
-      <div class="row2">
-        <div class="field">
-          <label class="q" for="vorname">Vorname</label>
-          <input type="text" id="vorname" name="Vorname" required />
-        </div>
-        <div class="field">
-          <label class="q" for="email">E-Mail</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="q" for="f1"><span class="num">1.</span>Was möchtest Du mit diesem Programm verändern, und warum gerade jetzt?</label>
-        <textarea id="f1" name="F1_Anliegen" required></textarea>
-      </div>
-
-      <div class="field">
-        <label class="q"><span class="num">2.</span>Wie gestresst fühlst Du Dich an einem ganz normalen Tag?</label>
-        <div class="scale">
-          <label><input type="radio" name="F2_Stresslevel" value="1" required /><span>1</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="2" /><span>2</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="3" /><span>3</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="4" /><span>4</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="5" /><span>5</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="6" /><span>6</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="7" /><span>7</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="8" /><span>8</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="9" /><span>9</span></label>
-          <label><input type="radio" name="F2_Stresslevel" value="10" /><span>10</span></label>
-        </div>
-        <div class="scale-ends"><span>1 · ruhig und ausgeglichen</span><span>10 · fast ständig unter Anspannung</span></div>
-      </div>
-
-      <div class="field">
-        <label class="q"><span class="num">3.</span>Woran merkst Du, dass Dein Körper unter Stress steht?</label>
-        <p class="hint">Wähle alles, was auf Dich zutrifft.</p>
-        <div class="choices two">
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Schlafprobleme" />Schlafprobleme</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Gedankenkreisen / schwer abschalten" />Gedankenkreisen oder schwer abschalten können</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Innere Unruhe oder Angst" />Innere Unruhe oder Angst</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Reizbarkeit" />Reizbarkeit oder dünnes Nervenkostüm</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Körperliche Anspannung" />Körperliche Anspannung (Kiefer, Schultern, Nacken)</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Flache Atmung in die Brust" />Flache Atmung, eher in die Brust als in den Bauch</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Erschöpfung trotz Ruhe" />Erschöpfung, auch nach Ruhepausen</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Magen / Verdauung" />Magen oder Verdauung</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Konzentrationsprobleme" />Schwierigkeiten, Dich zu konzentrieren</label>
-          <label class="choice"><input type="checkbox" name="F3_Stress-Signale" value="Etwas anderes" />Etwas anderes</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="q"><span class="num">4.</span>Womit hast Du schon Erfahrung gesammelt?</label>
-        <p class="hint">Wähle alles, was zutrifft.</p>
-        <div class="choices two">
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Meditation / Achtsamkeit" />Meditation oder Achtsamkeit</label>
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Atemübungen" />Atemübungen</label>
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Therapie / Coaching" />Therapie oder Coaching</label>
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="HRV / Wearables / Tracker" />HRV, Wearables oder andere Tracker</label>
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Erfahrung mit ADHS / Angst / depressiven Phasen" />Erfahrung mit ADHS, Angst oder depressiven Phasen</label>
-          <label class="choice"><input type="checkbox" name="F4_Vorerfahrung" value="Noch nichts davon, aber neugierig" />Noch nichts davon, aber ich bin neugierig</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="q"><span class="num">5.</span>Das Programm läuft über 12–15 Wochen, lebt von etwas täglicher Übung und passt sich Deinem individuellen Rhythmus an. Wie gut passt das gerade in Dein Leben?</label>
-        <div class="scale">
-          <label><input type="radio" name="F5_Passung" value="1" required /><span>1</span></label>
-          <label><input type="radio" name="F5_Passung" value="2" /><span>2</span></label>
-          <label><input type="radio" name="F5_Passung" value="3" /><span>3</span></label>
-          <label><input type="radio" name="F5_Passung" value="4" /><span>4</span></label>
-          <label><input type="radio" name="F5_Passung" value="5" /><span>5</span></label>
-        </div>
-        <div class="scale-ends"><span>1 · schwierig gerade</span><span>5 · passt gut</span></div>
-        <p class="hint" style="margin-top:18px">Und was hast Du bisher schon ausprobiert, und was hat Dir dabei gefehlt?</p>
-        <textarea name="F5_Bisher_probiert" required></textarea>
-      </div>
-
-      <label class="consent">
-        <input type="checkbox" name="Einverstaendnis" value="ja" required />
-        <span>Ich bin einverstanden, dass Susanne Schröder-Böse und Lucie Schnitzer meinen Vornamen, meine E-Mail-Adresse und meine Antworten speichern und verwenden, um sich wegen eines Pilotplatzes bei mir zu melden. Dieses Einverständnis kann ich jederzeit formlos per E-Mail an kontakt@schroeder-boese.coach widerrufen. Kommt keine Teilnahme zustande, werden meine Angaben gelöscht.</span>
-      </label>
-
-      <button type="submit" class="btn btn--primary">Interesse absenden</button>
-      <p class="privacy-note">Wir melden uns innerhalb einer Woche bei Dir. Deine Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
-    </form>
-
+    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet im Frühjahr 2027 und umfasst 12 Sitzungen über 12–15 Wochen. In der Anmeldung erzählst Du uns kurz, worum es bei Dir gerade geht. Wir melden uns innerhalb einer Woche zurück.</p>
+    <div class="cta-row" style="justify-content:center;margin-top:28px">
+      <a href="https://selbstregulation.vercel.app/anmeldung" class="btn btn--primary">Zur Anmeldung</a>
+    </div>
     <p class="trust" style="margin-top:28px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a></p>
   </div>
 </section>
@@ -690,63 +602,12 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
 </footer>
 
 <script>
-  // Require at least one selection in each checkbox group (F3, F4).
-  // Sets every box in the group as `required` until one is checked, so the
-  // browser's native validation blocks submit when none are selected.
+  // ?test=1 on the landing page carries over to the Anmeldung link, so test
+  // submissions still route to Lucie only (see anmeldung.html).
   (function () {
-    var form = document.querySelector('form.apply');
-    if (!form) return;
-    ['F3_Stress-Signale', 'F4_Vorerfahrung'].forEach(function (name) {
-      var boxes = form.querySelectorAll('input[name="' + name + '"]');
-      if (!boxes.length) return;
-      function sync() {
-        var any = Array.prototype.some.call(boxes, function (b) { return b.checked; });
-        Array.prototype.forEach.call(boxes, function (b) { b.required = !any; });
-      }
-      Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', sync); });
-      sync();
-    });
-  })();
-
-  // Submit via fetch so the thank-you shows inline. Native constraint
-  // validation has already passed by the time 'submit' fires. If fetch
-  // fails, fall back to a plain form POST (server renders a danke page).
-  // Opening the page with ?test=1 marks submissions as tests (email goes to
-  // Lucie only, not Susanne) — for web-designer checks after embedding.
-  (function () {
-    var form = document.querySelector('form.apply');
-    if (!form) return;
-    if (/[?&]test=1/.test(location.search)) {
-      var t = document.createElement('input');
-      t.type = 'hidden'; t.name = '_test'; t.value = '1';
-      form.appendChild(t);
-    }
-  })();
-
-  (function () {
-    var form = document.querySelector('form.apply');
-    if (!form || !window.fetch) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Wird gesendet…';
-      fetch(form.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      }).then(function (r) {
-        if (!r.ok) throw new Error('send failed');
-        form.innerHTML = '<div style="text-align:center;padding:32px 12px">' +
-          '<h3 style="margin:0 0 10px">Danke, Deine Interessensbekundung ist angekommen.</h3>' +
-          '<p style="margin:0">Wir melden uns innerhalb einer Woche bei Dir.</p></div>';
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }).catch(function () {
-        btn.disabled = false;
-        btn.textContent = 'Interesse absenden';
-        var note = form.querySelector('.privacy-note');
-        if (note) note.textContent = 'Das hat gerade nicht geklappt. Versuch es bitte noch einmal, oder schreib uns direkt an info@lucieschnitzer.com.';
-      });
+    if (!/[?&]test=1/.test(location.search)) return;
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="/anmeldung"]'), function (a) {
+      a.href += (a.href.indexOf('?') === -1 ? '?' : '&') + 'test=1';
     });
   })();
 </script>
