@@ -35,7 +35,7 @@ const FIELDS = [
   ["F2_Stresslevel", "2. Stresslevel an einem normalen Tag (1–10)"],
   ["F3_Stress-Signale", "3. Stress-Signale im Körper"],
   ["F4_Vorerfahrung", "4. Vorerfahrung"],
-  ["F5_Passung", "5. Passung 12–15 Wochen (1–5)"],
+  ["F5_Passung", "5. Passung Programm (1–5)"],
   ["F5_Bisher_probiert", "5b. Bisher probiert / was gefehlt hat"],
   ["Einverstaendnis", "Einverständnis"],
 ];
