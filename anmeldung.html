@@ -157,7 +157,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
     <span class="places-badge">Pilotprogramm · 10 Plätze</span>
     <p class="eyebrow">Anmeldung</p>
     <h1 class="measure" style="margin-left:auto;margin-right:auto;font-size:clamp(32px,5vw,48px)">Zeig Interesse an einem der ersten Plätze.</h1>
-    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet im Frühjahr 2027 und umfasst 9 Sitzungen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns innerhalb einer Woche zurück.</p>
+    <p class="measure" style="margin:0 auto 6px">Die erste Gruppe startet im Frühjahr 2027 und umfasst 9 Sitzungen über 9–11 Wochen. Erzähl uns kurz, worum es bei Dir gerade geht, und wir melden uns zeitnah bei Dir.</p>
 
     <form class="apply" action="https://selbstregulation.vercel.app/api/interesse" method="POST">
       <!-- Honeypot: hidden from humans, bots fill it and get silently dropped. -->
@@ -227,7 +227,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </div>
 
       <div class="field">
-        <label class="q"><span class="num">5.</span>Das Programm umfasst 9 Sitzungen, lebt von etwas täglicher Übung und passt sich Deinem individuellen Rhythmus an. Wie gut passt das gerade in Dein Leben?</label>
+        <label class="q"><span class="num">5.</span>Das Programm umfasst 9 Sitzungen über 9–11 Wochen, lebt von etwas täglicher Übung und passt sich Deinem individuellen Rhythmus an. Wie gut passt das gerade in Dein Leben?</label>
         <div class="scale">
           <label><input type="radio" name="F5_Passung" value="1" required /><span>1</span></label>
           <label><input type="radio" name="F5_Passung" value="2" /><span>2</span></label>
@@ -246,7 +246,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
       </label>
 
       <button type="submit" class="btn btn--primary">Interesse absenden</button>
-      <p class="privacy-note">Wir melden uns innerhalb einer Woche bei Dir. Deine Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
+      <p class="privacy-note">Wir melden uns zeitnah bei Dir. Deine Angaben behandeln wir vertraulich und geben sie nicht an Dritte weiter.</p>
     </form>
 
     <p class="trust" style="margin-top:28px">Auf Basis der Default Resilient Method von <a href="https://lucieschnitzer.com" target="_blank" rel="noopener">Lucie Schnitzer</a></p>
@@ -310,7 +310,7 @@ p { font-size: var(--fs-body-default); line-height: 1.66; color: var(--fg-2); }
         if (!r.ok) throw new Error('send failed');
         form.innerHTML = '<div style="text-align:center;padding:32px 12px">' +
           '<h3 style="margin:0 0 10px">Danke, Deine Interessensbekundung ist angekommen.</h3>' +
-          '<p style="margin:0">Wir melden uns innerhalb einer Woche bei Dir.</p></div>';
+          '<p style="margin:0">Wir melden uns zeitnah bei Dir.</p></div>';
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }).catch(function () {
         btn.disabled = false;

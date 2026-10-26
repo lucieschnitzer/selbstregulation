@@ -35,7 +35,7 @@ const FIELDS = [
   ["F2_Stresslevel", "2. Stresslevel an einem normalen Tag (1–10)"],
   ["F3_Stress-Signale", "3. Stress-Signale im Körper"],
   ["F4_Vorerfahrung", "4. Vorerfahrung"],
-  ["F5_Passung", "5. Passung Programm (1–5)"],
+  ["F5_Passung", "5. Passung Programm, 9 Sitzungen über 9–11 Wochen (1–5)"],
   ["F5_Bisher_probiert", "5b. Bisher probiert / was gefehlt hat"],
   ["Einverstaendnis", "Einverständnis"],
 ];
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
   const isTest = asText(body._test).trim() !== "";
 
   const rows = FIELDS.map(([key, label]) => {
-    const val = asText(body[key]).trim() || "—";
+    const val = asText(body[key]).trim() || "(keine Angabe)";
     return `<tr>
       <td style="padding:8px 14px 8px 0;vertical-align:top;color:#515762;white-space:nowrap"><strong>${escapeHtml(label)}</strong></td>
       <td style="padding:8px 0;vertical-align:top">${escapeHtml(val).replace(/\n/g, "<br/>")}</td>
@@ -111,7 +111,7 @@ export default async function handler(req, res) {
     <h2 style="color:#515762">Neue Interessensbekundung${isTest ? " [TEST]" : ""}</h2>
     <p>Über die Landingpage <a href="https://selbstregulation.vercel.app">selbstregulation.vercel.app</a>:</p>
     <table style="border-collapse:collapse;max-width:680px">${rows}</table>
-    <p style="margin-top:24px;color:#888;font-size:13px">Antworten gehen direkt an ${escapeHtml(vorname)} (${escapeHtml(email)}) — einfach auf diese E-Mail antworten.</p>
+    <p style="margin-top:24px;color:#888;font-size:13px">Antworten gehen direkt an ${escapeHtml(vorname)} (${escapeHtml(email)}). Einfach auf diese E-Mail antworten.</p>
   </body></html>`;
 
   const payload = {
@@ -143,9 +143,9 @@ export default async function handler(req, res) {
   if ((req.headers.accept || "").includes("text/html")) {
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     return res.status(200).send(
-      `<!doctype html><html lang="de"><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Danke!</title>
+      `<!doctype html><html lang="de"><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Danke</title>
       <body style="font-family:Arial,Helvetica,sans-serif;display:grid;place-items:center;min-height:90vh;color:#515762;text-align:center;padding:24px">
-      <div><h1>Danke, ${escapeHtml(vorname)}.</h1><p>Deine Interessensbekundung ist angekommen. Wir melden uns innerhalb einer Woche bei Dir.</p>
+      <div><h1>Danke, ${escapeHtml(vorname)}.</h1><p>Deine Interessensbekundung ist angekommen. Wir melden uns zeitnah bei Dir.</p>
       <p><a href="/" style="color:#A4A859">Zurück zur Seite</a></p></div></body></html>`
     );
   }
